@@ -62,6 +62,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_lazy_indexed_stack:
+    dependency: "direct main"
+    description:
+      name: flutter_lazy_indexed_stack
+      sha256: ae048ca4ceb995f07b0d0328eb959d60623c81a63c4d47284fc6e131aeebb411
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -186,3 +194,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=2.19.5 <3.0.0"
+  flutter: ">=3.7.0"
