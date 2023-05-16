@@ -5,6 +5,7 @@ import 'package:flutter_lazy_indexed_stack/flutter_lazy_indexed_stack.dart';
 import 'package:riotgg/components/bottomnavbar/custom_bottom_navBar.dart';
 import 'package:riotgg/features/main/pages/champion/view/champion_page.dart';
 import 'package:riotgg/features/main/pages/home/view/home_page.dart';
+import 'package:riotgg/features/main/pages/random_champion/View/random_champion_page.dart';
 
 class MainNavScreen extends StatefulWidget {
   const MainNavScreen({super.key});
@@ -14,24 +15,26 @@ class MainNavScreen extends StatefulWidget {
 }
 
 class _MainNavScreenState extends State<MainNavScreen> {
-
   late final List<Widget> _screens;
   late final List<String> _nomeTelas;
   int _currentIndex = 0;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
     _screens = [
       const HomePage(),
-      const ChampionPage(),  
+      const ChampionPage(),
+      const RandomChampionPage(),
     ];
     _nomeTelas = [
       'Home',
       'Champions'
+          'Random'
     ];
   }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -46,15 +49,22 @@ class _MainNavScreenState extends State<MainNavScreen> {
           buttonBackgroundColor: Colors.deepPurple,
           color: Colors.black,
           type: BottomNavigationBarType.fixed,
-          onTap: (int index){
+          onTap: (int index) {
             setState(() {
               _currentIndex = index;
             });
           },
           index: _currentIndex,
-          items: const[
-            Icon(Icons.house_outlined, color: Colors.white,),
-            Icon(Icons.person, color: Colors.white,),
+          items: const [
+            Icon(
+              Icons.house_outlined,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
+            Icon(Icons.add, color: Colors.white),
           ],
         ),
         appBar: AppBar(
@@ -72,6 +82,7 @@ class _MainNavScreenState extends State<MainNavScreen> {
       ),
     );
   }
+
   Future<bool> _onWillPop() async {
     return (await showDialog(
           context: context,
