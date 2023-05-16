@@ -6,14 +6,14 @@ import 'package:riotgg/components/bottomnavbar/custom_bottom_navBar.dart';
 import 'package:riotgg/features/main/pages/champion/view/champion_page.dart';
 import 'package:riotgg/features/main/pages/home/view/home_page.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class MainNavScreen extends StatefulWidget {
+  const MainNavScreen({super.key});
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<MainNavScreen> createState() => _MainNavScreenState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _MainNavScreenState extends State<MainNavScreen> {
 
   late final List<Widget> _screens;
   late final List<String> _nomeTelas;
@@ -28,7 +28,7 @@ class _MyWidgetState extends State<MyWidget> {
       const ChampionPage(),  
     ];
     _nomeTelas = [
-      'Home'
+      'Home',
       'Champions'
     ];
   }

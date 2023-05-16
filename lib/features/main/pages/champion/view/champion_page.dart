@@ -20,8 +20,13 @@ class _ChampionPageState extends State<ChampionPage> {
         title: Text('RIOT GG'),
       ),
       body: Center(
-        child: Text('B'),
-      ),
+          child: Container(
+            // height: 100,
+            // width: 100,
+        child: Image.asset(
+          'assets/imagens/Zeri.png',
+        ),
+      )),
     );
   }
 }
