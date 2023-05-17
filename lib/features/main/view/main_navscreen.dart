@@ -6,6 +6,7 @@ import 'package:riotgg/components/bottomnavbar/custom_bottom_navBar.dart';
 import 'package:riotgg/features/main/pages/champion/view/champion_page.dart';
 import 'package:riotgg/features/main/pages/home/view/home_page.dart';
 import 'package:riotgg/features/main/pages/random_champion/View/random_champion_page.dart';
+import 'package:riotgg/features/main/pages/random_champion/View/random_champion_router.dart';
 
 class MainNavScreen extends StatefulWidget {
   const MainNavScreen({super.key});
@@ -26,12 +27,12 @@ class _MainNavScreenState extends State<MainNavScreen> {
     _screens = [
       const HomePage(),
       const ChampionPage(),
-      const RandomChampionPage(),
+      RandomChampionRouter.page,
     ];
     _nomeTelas = [
       'Home',
-      'Champions'
-          'Random'
+      'Champions',
+      'Random',
     ];
   }
 

@@ -1,3 +1,5 @@
-abstract class IChampionsRepository {
+import 'package:riotgg/shared/models/champion_model.dart';
 
+abstract class IChampionsRepository {
+  Future<ChampionModel> buscaAleatoriaChampion();
 }
