@@ -6,6 +6,7 @@ import 'package:riotgg/shared/exceptions/database_exception.dart';
 import 'package:riotgg/shared/models/champion_model.dart';
 
 class ChampionsRepository implements IChampionsRepository {
+  @override
   Future<ChampionModel> buscaAleatoriaChampion() async {
     MySqlConnection? conn;
 
@@ -23,9 +24,35 @@ class ChampionsRepository implements IChampionsRepository {
       return ChampionModel(nome: nome, url: url, lane: lane);
     } on MySqlConnection catch (e) {
       debugPrint(e.toString());
-       throw DatabaseException(
+      throw DatabaseException(
           message: 'Erro ao buscar informações no banco de dados');
     }
+  }
 
+  @override
+  Future<List<ChampionModel>> getChampions() async {
+    List<ChampionModel> listaChampions = [];
+
+    MySqlConnection? conn;
+
+    try {
+      conn = await DatabaseDart.instance.getConnection();
+
+      final myResults = await conn.query('SELECT * FROM `riot_gg`.champions ORDER BY nome');
+      for (var row in myResults) {
+        listaChampions.add(
+          ChampionModel(
+            nome: row['nome'],
+            url: row['url'],
+            lane: row['lane'],
+          ),
+        );
+      }
+      return listaChampions;
+    } on MySqlException catch (e) {
+      debugPrint(e.message);
+      throw DatabaseException(
+          message: 'Erro ao puxar Campeoes do banco de dados!');
+    }
   }
 }

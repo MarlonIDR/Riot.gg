@@ -1,7 +1,10 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:riotgg/components/bottomnavbar/nav_button.dart';
 import 'package:riotgg/components/bottomnavbar/nav_custom_painter.dart';
 
+// ignore: unused_element
 typedef _LetIndexPage = bool Function(int value);
 
 class CurvedNavigationBar extends StatefulWidget {
@@ -15,7 +18,7 @@ class CurvedNavigationBar extends StatefulWidget {
   final Duration animationDuration;
   final double height;
 
-  CurvedNavigationBar({
+  const CurvedNavigationBar({super.key, 
     required this.items,
     this.index = 0,
     this.color = Colors.white,
@@ -156,9 +159,7 @@ class CurvedNavigationBarState extends State<CurvedNavigationBar>
   }
 
   void _buttonTap(int index) {
-    if (widget.onTap != null) {
-      widget.onTap(index);
-    }
+    widget.onTap(index);
     final newPosition = index / _length;
     setState(() {
       _startingPos = _pos;

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_lazy_indexed_stack/flutter_lazy_indexed_stack.dart';
 import 'package:riotgg/components/bottomnavbar/custom_bottom_navBar.dart';
-import 'package:riotgg/features/main/pages/champion/view/champion_page.dart';
+import 'package:riotgg/features/main/pages/champion/view/champion_router.dart';
 import 'package:riotgg/features/main/pages/home/view/home_page.dart';
-import 'package:riotgg/features/main/pages/random_champion/View/random_champion_page.dart';
 import 'package:riotgg/features/main/pages/random_champion/View/random_champion_router.dart';
 
 class MainNavScreen extends StatefulWidget {
@@ -26,7 +23,7 @@ class _MainNavScreenState extends State<MainNavScreen> {
 
     _screens = [
       const HomePage(),
-      const ChampionPage(),
+      ChampionRouter.page,
       RandomChampionRouter.page,
     ];
     _nomeTelas = [

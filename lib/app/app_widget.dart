@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:riotgg/features/main/pages/home/view/home_page.dart';
 import 'package:riotgg/features/main/view/main_navscreen.dart';
 
 class MyApp extends StatefulWidget {
@@ -14,9 +13,9 @@ class _MyAppState extends State<MyApp> {
 
    @override
    Widget build(BuildContext context) {
-       return MaterialApp(
+       return const MaterialApp(
         title: 'RIOT GG',
-        home: const MainNavScreen(),
+        home: MainNavScreen(),
 
        );
   }

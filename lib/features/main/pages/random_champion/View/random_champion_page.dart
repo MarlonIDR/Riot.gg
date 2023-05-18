@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:riotgg/features/main/pages/random_champion/View/random_champion_state.dart';
@@ -26,7 +24,7 @@ class _RandomChampionPageState extends State<RandomChampionPage> {
   Widget build(BuildContext context) {
     return BlocBuilder<RandomChampionController, RandomChampionState>(
       builder: (context, state) {
-        final _championController = context.read<RandomChampionController>();
+        final championController = context.read<RandomChampionController>();
         return Scaffold(
           body: Center(
             child: Column(
@@ -39,8 +37,8 @@ class _RandomChampionPageState extends State<RandomChampionPage> {
                       RandomChampionState>(
                     builder: (context, state) {
                       return Image.asset(
-                        _championController.state.championModel != null
-                            ? _championController.state.championModel!.url
+                        championController.state.championModel != null
+                            ? championController.state.championModel!.url
                             : 'assets/imagens/padrão.png',
                       );
                     },
@@ -51,8 +49,8 @@ class _RandomChampionPageState extends State<RandomChampionPage> {
                 ),
                 BlocBuilder<RandomChampionController, RandomChampionState>(
                   builder: (context, state) {
-                    return Text(_championController.state.championModel != null
-                        ? _championController.state.championModel!.nome
+                    return Text(championController.state.championModel != null
+                        ? championController.state.championModel!.nome
                         : 'Nome campeão');
                   },
                 ),
@@ -61,8 +59,8 @@ class _RandomChampionPageState extends State<RandomChampionPage> {
                 ),
                 BlocBuilder<RandomChampionController, RandomChampionState>(
                   builder: (context, state) {
-                    return Text(_championController.state.randomLane != null
-                        ? _championController.state.randomLane!
+                    return Text(championController.state.randomLane != null
+                        ? championController.state.randomLane!
                         : "Lane para jogar");
                   },
                 ),
@@ -82,7 +80,7 @@ class _RandomChampionPageState extends State<RandomChampionPage> {
                     } else {
                       return ElevatedButton(
                         onPressed: () {
-                          _championController.buscaAleatoriaChampion();
+                          championController.buscaAleatoriaChampion();
                         },
                         child: const Text('Aleatorio'),
                       );
