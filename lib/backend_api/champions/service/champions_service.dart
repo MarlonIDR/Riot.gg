@@ -14,5 +14,26 @@ class ChampionsService implements IChampionsService {
       championsRepository.buscaAleatoriaChampion();
 
   @override
-  Future<List<ChampionModel>> getChampions() => championsRepository.getChampions();
+  Future<List<ChampionModel>> getChampions() =>
+      championsRepository.getChampions();
+
+  @override
+  Future<List<ChampionModel>> getChampionsAdc() =>
+      championsRepository.getChampionsAdc();
+
+  @override
+  Future<List<ChampionModel>> getChampionsJg() =>
+      championsRepository.getChampionsJg();
+
+  @override
+  Future<List<ChampionModel>> getChampionsMid() =>
+      championsRepository.getChampionsMid();
+
+  @override
+  Future<List<ChampionModel>> getChampionsSup() =>
+      championsRepository.getChampionsSup();
+
+  @override
+  Future<List<ChampionModel>> getChampionsTop() =>
+      championsRepository.getChampionsTop();
 }

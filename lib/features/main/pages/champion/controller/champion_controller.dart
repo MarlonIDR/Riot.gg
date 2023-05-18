@@ -27,5 +27,84 @@ class ChampionController extends Cubit<ChampionState> {
       ));
     }
   }
+  Future<void> getChampionsTop() async {
+    try {
+      emit(state.copyWith(status: ChampionStatus.loading, champions: []));
 
+      final listaChampions = await championsService.getChampionsTop();
+      for (var champion in listaChampions){
+        debugPrint(champion.nome);
+      }
+      emit(state.copyWith(status: ChampionStatus.initial, champions: listaChampions));
+    } catch (e) {
+      emit(state.copyWith(
+        status: ChampionStatus.error,
+        errorMessage: 'Erro ao pegar lista de campeoes.',
+      ));
+    }
+  }
+  Future<void> getChampionsJg() async {
+    try {
+      emit(state.copyWith(status: ChampionStatus.loading, champions: []));
+
+      final listaChampions = await championsService.getChampionsJg();
+      for (var champion in listaChampions){
+        debugPrint(champion.nome);
+      }
+      emit(state.copyWith(status: ChampionStatus.initial, champions: listaChampions));
+    } catch (e) {
+      emit(state.copyWith(
+        status: ChampionStatus.error,
+        errorMessage: 'Erro ao pegar lista de campeoes.',
+      ));
+    }
+  }
+  Future<void> getChampionsMid() async {
+    try {
+      emit(state.copyWith(status: ChampionStatus.loading, champions: []));
+
+      final listaChampions = await championsService.getChampionsMid();
+      for (var champion in listaChampions){
+        debugPrint(champion.nome);
+      }
+      emit(state.copyWith(status: ChampionStatus.initial, champions: listaChampions));
+    } catch (e) {
+      emit(state.copyWith(
+        status: ChampionStatus.error,
+        errorMessage: 'Erro ao pegar lista de campeoes.',
+      ));
+    }
+  }
+  Future<void> getChampionsAdc() async {
+    try {
+      emit(state.copyWith(status: ChampionStatus.loading, champions: []));
+
+      final listaChampions = await championsService.getChampionsAdc();
+      for (var champion in listaChampions){
+        debugPrint(champion.nome);
+      }
+      emit(state.copyWith(status: ChampionStatus.initial, champions: listaChampions));
+    } catch (e) {
+      emit(state.copyWith(
+        status: ChampionStatus.error,
+        errorMessage: 'Erro ao pegar lista de campeoes.',
+      ));
+    }
+  }
+  Future<void> getChampionsSup() async {
+    try {
+      emit(state.copyWith(status: ChampionStatus.loading, champions: []));
+
+      final listaChampions = await championsService.getChampionsSup();
+      for (var champion in listaChampions){
+        debugPrint(champion.nome);
+      }
+      emit(state.copyWith(status: ChampionStatus.initial, champions: listaChampions));
+    } catch (e) {
+      emit(state.copyWith(
+        status: ChampionStatus.error,
+        errorMessage: 'Erro ao pegar lista de campeoes.',
+      ));
+    }
+  }
 }

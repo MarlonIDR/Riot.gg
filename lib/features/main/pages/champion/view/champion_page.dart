@@ -48,31 +48,31 @@ class _ChampionPageState extends State<ChampionPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        buildLaneImage(
+                        buildLaneImageTop(
                           'assets/icons/lanes/Top_icon_not_select.png',
                           'assets/icons/lanes/Top_icon.png',
                           'Top',
                         ),
                         SizedBox(width: screenSize.width * 0.04),
-                        buildLaneImage(
+                        buildLaneImageJg(
                           'assets/icons/lanes/Jungle_icon_not_select.png',
                           'assets/icons/lanes/Jungle_icon.png',
                           'Jungle',
                         ),
                         SizedBox(width: screenSize.width * 0.04),
-                        buildLaneImage(
+                        buildLaneImageMid(
                           'assets/icons/lanes/Middle_icon_not_select.png',
                           'assets/icons/lanes/Middle_icon.png',
                           'Middle',
                         ),
                         SizedBox(width: screenSize.width * 0.04),
-                        buildLaneImage(
+                        buildLaneImageAdc(
                           'assets/icons/lanes/Bottom_icon_not_select.png',
                           'assets/icons/lanes/Bottom_icon.png',
                           'Bottom',
                         ),
                         SizedBox(width: screenSize.width * 0.04),
-                        buildLaneImage(
+                        buildLaneImageSup(
                           'assets/icons/lanes/Support_icon_not_select.png',
                           'assets/icons/lanes/Support_icon.png',
                           'Support',
@@ -127,6 +127,86 @@ class _ChampionPageState extends State<ChampionPage> {
       onTap: () {
         _selectLane(lane);
         context.read<ChampionController>().getChampions();
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Image.asset(
+          isSelected ? selectedImage : normalImage,
+        ),
+      ),
+    );
+  }
+  Widget buildLaneImageTop(String normalImage, String selectedImage, String lane) {
+    final bool isSelected = selectedLane == lane;
+
+    return GestureDetector(
+      onTap: () {
+        _selectLane(lane);
+        context.read<ChampionController>().getChampionsTop();
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Image.asset(
+          isSelected ? selectedImage : normalImage,
+        ),
+      ),
+    );
+  }
+  Widget buildLaneImageJg(String normalImage, String selectedImage, String lane) {
+    final bool isSelected = selectedLane == lane;
+
+    return GestureDetector(
+      onTap: () {
+        _selectLane(lane);
+        context.read<ChampionController>().getChampionsJg();
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Image.asset(
+          isSelected ? selectedImage : normalImage,
+        ),
+      ),
+    );
+  }
+  Widget buildLaneImageMid(String normalImage, String selectedImage, String lane) {
+    final bool isSelected = selectedLane == lane;
+
+    return GestureDetector(
+      onTap: () {
+        _selectLane(lane);
+        context.read<ChampionController>().getChampionsMid();
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Image.asset(
+          isSelected ? selectedImage : normalImage,
+        ),
+      ),
+    );
+  }
+  Widget buildLaneImageAdc(String normalImage, String selectedImage, String lane) {
+    final bool isSelected = selectedLane == lane;
+
+    return GestureDetector(
+      onTap: () {
+        _selectLane(lane);
+        context.read<ChampionController>().getChampionsAdc();
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Image.asset(
+          isSelected ? selectedImage : normalImage,
+        ),
+      ),
+    );
+  }
+  Widget buildLaneImageSup(String normalImage, String selectedImage, String lane) {
+    final bool isSelected = selectedLane == lane;
+
+    return GestureDetector(
+      onTap: () {
+        _selectLane(lane);
+        context.read<ChampionController>().getChampionsSup();
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
