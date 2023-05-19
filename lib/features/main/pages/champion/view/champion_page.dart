@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:riotgg/features/informacoes_champions/view/informacoes_champions_page.dart';
 import 'package:riotgg/features/main/pages/champion/components/custom_list_champions.dart';
 import 'package:riotgg/features/main/pages/champion/controller/champion_controller.dart';
 import 'package:riotgg/features/main/pages/champion/view/champion_state.dart';
@@ -99,9 +100,20 @@ class _ChampionPageState extends State<ChampionPage> {
                             itemCount: state.champions?.length ?? 0,
                             itemBuilder: (context, index) {
                               final champion = state.champions?[index];
-
-                              return ChampionListItem(
-                                champion: champion!,
+                              return GestureDetector(
+                                onTap: () {
+                                  debugPrint(champion.nome);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                           InformacoesChampionsPage(championModel: champion),
+                                    ),
+                                  );
+                                },
+                                child: ChampionListItem(
+                                  champion: champion!,
+                                ),
                               );
                             },
                           ),
@@ -136,7 +148,9 @@ class _ChampionPageState extends State<ChampionPage> {
       ),
     );
   }
-  Widget buildLaneImageTop(String normalImage, String selectedImage, String lane) {
+
+  Widget buildLaneImageTop(
+      String normalImage, String selectedImage, String lane) {
     final bool isSelected = selectedLane == lane;
 
     return GestureDetector(
@@ -152,7 +166,9 @@ class _ChampionPageState extends State<ChampionPage> {
       ),
     );
   }
-  Widget buildLaneImageJg(String normalImage, String selectedImage, String lane) {
+
+  Widget buildLaneImageJg(
+      String normalImage, String selectedImage, String lane) {
     final bool isSelected = selectedLane == lane;
 
     return GestureDetector(
@@ -168,7 +184,9 @@ class _ChampionPageState extends State<ChampionPage> {
       ),
     );
   }
-  Widget buildLaneImageMid(String normalImage, String selectedImage, String lane) {
+
+  Widget buildLaneImageMid(
+      String normalImage, String selectedImage, String lane) {
     final bool isSelected = selectedLane == lane;
 
     return GestureDetector(
@@ -184,7 +202,9 @@ class _ChampionPageState extends State<ChampionPage> {
       ),
     );
   }
-  Widget buildLaneImageAdc(String normalImage, String selectedImage, String lane) {
+
+  Widget buildLaneImageAdc(
+      String normalImage, String selectedImage, String lane) {
     final bool isSelected = selectedLane == lane;
 
     return GestureDetector(
@@ -200,7 +220,9 @@ class _ChampionPageState extends State<ChampionPage> {
       ),
     );
   }
-  Widget buildLaneImageSup(String normalImage, String selectedImage, String lane) {
+
+  Widget buildLaneImageSup(
+      String normalImage, String selectedImage, String lane) {
     final bool isSelected = selectedLane == lane;
 
     return GestureDetector(

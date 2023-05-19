@@ -8,20 +8,29 @@ class ChampionListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Image.asset(
-        champion.url,
-        width: 50,
-        height: 50,
-      ),
-      title: Text(champion.nome),
-      trailing: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: const [
-          Text('Winrate: 75%'), // Substitua pelo valor real de winrate
-          Text('Pickrate: 12%'), // Substitua pelo valor real de pickrate
-          Text('Banrate: 5%'), // Substitua pelo valor real de banrate
-        ],
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: ListTile(
+        leading: Image.asset(
+          champion.url,
+          width: 50,
+          height: 50,
+        ),
+        title: Text(
+          champion.nome,
+          style: const TextStyle(
+            fontFamily: 'FontChampions',
+            fontWeight: FontWeight.bold
+          ),
+        ),
+        trailing: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: const [
+            Text('Winrate: 75%'), // Substitua pelo valor real de winrate
+            Text('Pickrate: 12%'), // Substitua pelo valor real de pickrate
+            Text('Banrate: 5%'), // Substitua pelo valor real de banrate
+          ],
+        ),
       ),
     );
   }

@@ -13,6 +13,7 @@ class MainNavScreen extends StatefulWidget {
 }
 
 class _MainNavScreenState extends State<MainNavScreen> {
+
   late final List<Widget> _screens;
   late final List<String> _nomeTelas;
   int _currentIndex = 0;
@@ -38,14 +39,15 @@ class _MainNavScreenState extends State<MainNavScreen> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        backgroundColor: Colors.blue,
+        
+        backgroundColor: Colors.white,
         bottomNavigationBar: CurvedNavigationBar(
           height: 60,
           animationCurve: Curves.linear,
           animationDuration: const Duration(milliseconds: 400),
-          backgroundColor: Colors.green,
-          buttonBackgroundColor: Colors.deepPurple,
-          color: Colors.black,
+          backgroundColor: Colors.white,
+          buttonBackgroundColor: const Color.fromRGBO(235, 0, 41, 1),
+          color: const Color.fromRGBO(235, 0, 41, 1),
           type: BottomNavigationBarType.fixed,
           onTap: (int index) {
             setState(() {
@@ -66,7 +68,8 @@ class _MainNavScreenState extends State<MainNavScreen> {
           ],
         ),
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.primary,
+          elevation: 0,
+          backgroundColor: const Color.fromRGBO(235, 0, 41, 1),
           title: Text(
             _nomeTelas[_currentIndex],
             style: const TextStyle(
