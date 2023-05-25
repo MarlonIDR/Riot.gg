@@ -11,7 +11,7 @@ class DatabaseDart {
   static DatabaseDart get instance => _instance;
 
   static const _myHost =
-      'db-riot-gg.cyrpmhdmh2as.us-east-2.rds.amazonaws.com'; //<- alterar para o novo endpoint
+      'riot-opgg.cyrpmhdmh2as.us-east-2.rds.amazonaws.com'; //<- alterar para o novo endpoint
   static const _myPort = 3306;
   static const _myUser = 'root';
   static const _myPassword = '15161718';

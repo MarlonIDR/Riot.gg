@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:riotgg/features/main/view/main_navscreen.dart';
 import 'package:riotgg/shared/helpers/set_screen_mode.dart';
 
@@ -12,9 +13,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    SetScreenMode.fullScreen();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return const MaterialApp(
-      // constraints: BoxConstraints.expand(),
       debugShowCheckedModeBanner: false,
       title: 'RIOT GG',
       home: MainNavScreen(),

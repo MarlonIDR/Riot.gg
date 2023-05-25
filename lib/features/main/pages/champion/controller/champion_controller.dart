@@ -37,7 +37,7 @@ class ChampionController extends Cubit<ChampionState> {
 
       final listaChampions = await championsService.getChampionsTop();
       for (var champion in listaChampions) {
-        debugPrint(champion.nome);
+        debugPrint(champion.championSplashArtUrl);
       }
       emit(state.copyWith(
           status: ChampionStatus.initial, champions: listaChampions));

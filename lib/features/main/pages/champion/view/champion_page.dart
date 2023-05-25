@@ -157,6 +157,7 @@ class _ChampionPageState extends State<ChampionPage> {
       onTap: () {
         _selectLane(lane);
         context.read<ChampionController>().getChampionsTop();
+      
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
