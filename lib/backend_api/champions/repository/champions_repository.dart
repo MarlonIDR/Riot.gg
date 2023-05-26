@@ -5,6 +5,9 @@ import 'package:riotgg/mysqlconnection/database_dart.dart';
 import 'package:riotgg/shared/exceptions/database_exception.dart';
 import 'package:riotgg/shared/models/champion_model.dart';
 
+
+//TODO trocar querry das lanes para apenas um!
+
 class ChampionsRepository implements IChampionsRepository {
   @override
   Future<ChampionModel> buscaAleatoriaChampion() async {
@@ -41,6 +44,10 @@ class ChampionsRepository implements IChampionsRepository {
         habilidadeRUrl: row['habilidadeR_url'],
         habilidadeRDescricao: row['habilidadeR_descricao'],
         championSplashArtUrl: row['champion_splash_art_url'],
+        counterForte: row['counter_forte'],
+        counterFraco: row['counter_fraco'],
+        
+        
       );
     } on MySqlConnection catch (e) {
       debugPrint(e.toString());
@@ -82,6 +89,8 @@ class ChampionsRepository implements IChampionsRepository {
             habilidadeRUrl: row['habilidadeR_url'],
             habilidadeRDescricao: row['habilidadeR_descricao'],
             championSplashArtUrl: row['champion_splash_art_url'],
+            counterForte: row['counter_forte'],
+        counterFraco: row['counter_fraco'],
           ),
         );
       }
@@ -125,6 +134,8 @@ class ChampionsRepository implements IChampionsRepository {
             habilidadeRUrl: row['habilidadeR_url'],
             habilidadeRDescricao: row['habilidadeR_descricao'],
             championSplashArtUrl: row['champion_splash_art_url'],
+            counterForte: row['counter_forte'],
+        counterFraco: row['counter_fraco'],
           ),
         );
       }
@@ -167,6 +178,8 @@ class ChampionsRepository implements IChampionsRepository {
             habilidadeRUrl: row['habilidadeR_url'],
             habilidadeRDescricao: row['habilidadeR_descricao'],
             championSplashArtUrl: row['champion_splash_art_url'],
+            counterForte: row['counter_forte'],
+        counterFraco: row['counter_fraco'],
           ),
         );
       }
@@ -209,6 +222,8 @@ class ChampionsRepository implements IChampionsRepository {
             habilidadeRUrl: row['habilidadeR_url'],
             habilidadeRDescricao: row['habilidadeR_descricao'],
             championSplashArtUrl: row['champion_splash_art_url'],
+            counterForte: row['counter_forte'],
+        counterFraco: row['counter_fraco'],
           ),
         );
       }
@@ -251,6 +266,8 @@ class ChampionsRepository implements IChampionsRepository {
             habilidadeRUrl: row['habilidadeR_url'],
             habilidadeRDescricao: row['habilidadeR_descricao'],
             championSplashArtUrl: row['champion_splash_art_url'],
+            counterForte: row['counter_forte'],
+        counterFraco: row['counter_fraco'],
           ),
         );
       }
@@ -293,6 +310,8 @@ class ChampionsRepository implements IChampionsRepository {
             habilidadeRUrl: row['habilidadeR_url'],
             habilidadeRDescricao: row['habilidadeR_descricao'],
             championSplashArtUrl: row['champion_splash_art_url'],
+           counterForte: row['counter_forte'],
+        counterFraco: row['counter_fraco'],
           ),
         );
       }
@@ -303,5 +322,5 @@ class ChampionsRepository implements IChampionsRepository {
     }
   }
 
-  Future<void> getChampionSlashArt() async {}
+  
 }

@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:riotgg/features/informacoes_champions/components/custom_list_counters.dart';
 
 import 'package:riotgg/shared/models/champion_model.dart';
 
@@ -29,14 +30,17 @@ class InformacoesChampionsPage extends StatelessWidget {
                         children: [
                           Image.asset(
                             championModel.championSplashArtUrl,
-                            height: screenSize.height * 0.3,
+                            height: screenSize.height * 0.275,
                             width: screenSize.width * 1,
                           ),
                           Positioned(
                             top: 16,
                             left: 16,
                             child: IconButton(
-                              icon: const Icon(Icons.arrow_back, color: Colors.white,),
+                              icon: const Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                              ),
                               onPressed: () {
                                 Navigator.pop(context);
                               },
@@ -64,23 +68,26 @@ class InformacoesChampionsPage extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(right: 40),
-                            child: Container(
-                              alignment: Alignment.center,
+                            child: SizedBox(
                               height: 25,
-                              width: 150,
-                              color: Colors.grey[100],
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Summoner Rift',
-                                    style: TextStyle(color: Colors.grey[600]),
-                                  ),
-                                  Icon(
-                                    Icons.keyboard_arrow_down,
-                                    color: Colors.grey[600],
-                                  ),
-                                ],
+                              width: 140,
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.grey[200]),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Summoner Rift',
+                                      style: TextStyle(color: Colors.grey[600]),
+                                    ),
+                                    Icon(
+                                      Icons.keyboard_arrow_down,
+                                      color: Colors.grey[600],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -92,42 +99,49 @@ class InformacoesChampionsPage extends StatelessWidget {
                                 backgroundColor: Colors.white,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(25),
-                                    topRight: Radius.circular(25),
+                                    topLeft: Radius.circular(32),
+                                    topRight: Radius.circular(32),
                                   ),
                                 ),
                                 builder: (context) {
-                                  return Scaffold(
-                                    appBar: AppBar(
-                                      backgroundColor: Colors.transparent,
-                                      elevation: 0,
-                                      automaticallyImplyLeading: false,
-                                      actions: [
-                                        IconButton(
-                                          icon: const Icon(Icons.close),
-                                          color: Colors.black,
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                    body: Container(
-                                      padding: const EdgeInsets.all(16),
-                                      height: 300,
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Row(
+                                  return Container(
+                                    padding: const EdgeInsets.all(16),
+                                    height: 400,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        SizedBox(
+                                          height: 30,
+                                          width: screenSize.width,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
                                             children: [
-                                              Image.asset(
-                                                  championModel.passivaUrl,
-                                                  width:
-                                                      screenSize.width * 0.25,
-                                                  height:
-                                                      screenSize.width * 0.25),
-                                              const SizedBox(width: 10),
-                                              Column(
+                                              IconButton(
+                                                icon: const Icon(Icons.close),
+                                                color: Colors.black,
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              championModel.passivaUrl,
+                                              width: screenSize.width * 0.25,
+                                              height: screenSize.width * 0.25,
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Expanded(
+                                              child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
@@ -139,23 +153,36 @@ class InformacoesChampionsPage extends StatelessWidget {
                                                       color: Colors.black,
                                                     ),
                                                   ),
-                                                  Text(championModel
-                                                      .passivaDescricao),
+                                                  const SizedBox(height: 20),
+                                                  Text(
+                                                    championModel
+                                                        .passivaDescricao,
+                                                    style: championModel
+                                                                .passivaDescricao
+                                                                .length >
+                                                            500
+                                                        ? const TextStyle(
+                                                            fontSize: 12.0,
+                                                            color: Colors.black)
+                                                        : const TextStyle(
+                                                            color:
+                                                                Colors.black),
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    maxLines: 20,
+                                                  ),
                                                 ],
                                               ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   );
                                 },
                               );
                             },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
+                            child: SizedBox(
                               height: 30,
                               width: 30,
                               child: ClipOval(
@@ -174,43 +201,49 @@ class InformacoesChampionsPage extends StatelessWidget {
                                 backgroundColor: Colors.white,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10),
+                                    topLeft: Radius.circular(32),
+                                    topRight: Radius.circular(32),
                                   ),
                                 ),
                                 builder: (context) {
-                                  return Scaffold(
-                                    appBar: AppBar(
-                                      backgroundColor: Colors.transparent,
-                                      elevation: 0,
-                                      automaticallyImplyLeading: false,
-                                      actions: [
-                                        IconButton(
-                                          icon: const Icon(Icons.close),
-                                          color: Colors.black,
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                    body: Container(
-                                      padding: const EdgeInsets.all(16),
-                                      height:
-                                          300, // Defina o tamanho inicial do BottomSheet aqui
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          // Conteúdo do BottomSheet para habilidadeQ
-                                          Row(
+                                  return Container(
+                                    padding: const EdgeInsets.all(16),
+                                    height: 400,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        SizedBox(
+                                          height: 30,
+                                          width: screenSize.width,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
                                             children: [
-                                              Image.asset(
-                                                championModel.habilidadeQUrl,
-                                                width: screenSize.width * 0.25,
-                                                height: screenSize.width * 0.25,
-                                              ),
-                                              const SizedBox(width: 10),
-                                              Column(
+                                              IconButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                icon: const Icon(Icons.close),
+                                                color: Colors.black,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              championModel.habilidadeQUrl,
+                                              width: screenSize.width * 0.25,
+                                              height: screenSize.width * 0.25,
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Expanded(
+                                              child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
@@ -223,15 +256,33 @@ class InformacoesChampionsPage extends StatelessWidget {
                                                       color: Colors.black,
                                                     ),
                                                   ),
-                                                  Text(championModel
-                                                      .habilidadeQDescricao),
+                                                  const SizedBox(
+                                                    height: 20,
+                                                  ),
+                                                  Text(
+                                                    championModel
+                                                        .habilidadeQDescricao,
+                                                    style: championModel
+                                                                .habilidadeQDescricao
+                                                                .length >
+                                                            500
+                                                        ? const TextStyle(
+                                                            fontSize: 12.0,
+                                                            color: Colors.black)
+                                                        : const TextStyle(
+                                                            color:
+                                                                Colors.black),
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    maxLines: 20,
+                                                  ),
                                                 ],
                                               ),
-                                            ],
-                                          ),
-                                          // Adicione outros widgets conforme necessário
-                                        ],
-                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                        // Adicione outros widgets conforme necessário
+                                      ],
                                     ),
                                   );
                                 },
@@ -242,8 +293,9 @@ class InformacoesChampionsPage extends StatelessWidget {
                                 SizedBox(
                                   height: 30,
                                   width: 30,
-                                  child:
-                                      Image.asset(championModel.habilidadeQUrl),
+                                  child: ClipOval(
+                                      child: Image.asset(
+                                          championModel.habilidadeQUrl)),
                                 ),
                                 Positioned(
                                   bottom: 0,
@@ -277,43 +329,48 @@ class InformacoesChampionsPage extends StatelessWidget {
                                 backgroundColor: Colors.white,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10),
+                                    topLeft: Radius.circular(32),
+                                    topRight: Radius.circular(32),
                                   ),
                                 ),
                                 builder: (context) {
-                                  return Scaffold(
-                                    appBar: AppBar(
-                                      backgroundColor: Colors.transparent,
-                                      elevation: 0,
-                                      automaticallyImplyLeading: false,
-                                      actions: [
-                                        IconButton(
-                                          icon: const Icon(Icons.close),
-                                          color: Colors.black,
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                    body: Container(
-                                      padding: const EdgeInsets.all(16),
-                                      height:
-                                          300, // Defina o tamanho inicial do BottomSheet aqui
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          // Conteúdo do BottomSheet para habilidadeQ
-                                          Row(
+                                  return Container(
+                                    padding: const EdgeInsets.all(16),
+                                    height: 400,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        SizedBox(
+                                          height: 30,
+                                          width: screenSize.width,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
                                             children: [
-                                              Image.asset(
-                                                championModel.habilidadeWUrl,
-                                                width: screenSize.width * 0.25,
-                                                height: screenSize.width * 0.25,
-                                              ),
-                                              const SizedBox(width: 10),
-                                              Column(
+                                              IconButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  icon: const Icon(Icons.close),
+                                                  color: Colors.black)
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              championModel.habilidadeWUrl,
+                                              width: screenSize.width * 0.25,
+                                              height: screenSize.width * 0.25,
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Expanded(
+                                              child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
@@ -326,15 +383,33 @@ class InformacoesChampionsPage extends StatelessWidget {
                                                       color: Colors.black,
                                                     ),
                                                   ),
-                                                  Text(championModel
-                                                      .habilidadeWDescricao),
+                                                  const SizedBox(
+                                                    height: 20,
+                                                  ),
+                                                  Text(
+                                                    championModel
+                                                        .habilidadeWDescricao,
+                                                    style: championModel
+                                                                .habilidadeWDescricao
+                                                                .length >
+                                                            500
+                                                        ? const TextStyle(
+                                                            fontSize: 12.0,
+                                                            color: Colors.black)
+                                                        : const TextStyle(
+                                                            color:
+                                                                Colors.black),
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    maxLines: 20,
+                                                  ),
                                                 ],
                                               ),
-                                            ],
-                                          ),
-                                          // Adicione outros widgets conforme necessário
-                                        ],
-                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                        // Adicione outros widgets conforme necessário
+                                      ],
                                     ),
                                   );
                                 },
@@ -345,8 +420,9 @@ class InformacoesChampionsPage extends StatelessWidget {
                                 SizedBox(
                                   height: 30,
                                   width: 30,
-                                  child:
-                                      Image.asset(championModel.habilidadeWUrl),
+                                  child: ClipOval(
+                                      child: Image.asset(
+                                          championModel.habilidadeWUrl)),
                                 ),
                                 Positioned(
                                   bottom: 0,
@@ -380,43 +456,48 @@ class InformacoesChampionsPage extends StatelessWidget {
                                 backgroundColor: Colors.white,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10),
+                                    topLeft: Radius.circular(32),
+                                    topRight: Radius.circular(32),
                                   ),
                                 ),
                                 builder: (context) {
-                                  return Scaffold(
-                                    appBar: AppBar(
-                                      backgroundColor: Colors.transparent,
-                                      elevation: 0,
-                                      automaticallyImplyLeading: false,
-                                      actions: [
-                                        IconButton(
-                                          icon: const Icon(Icons.close),
-                                          color: Colors.black,
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                    body: Container(
-                                      padding: const EdgeInsets.all(16),
-                                      height:
-                                          300, // Defina o tamanho inicial do BottomSheet aqui
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          // Conteúdo do BottomSheet para habilidadeQ
-                                          Row(
+                                  return Container(
+                                    padding: const EdgeInsets.all(16),
+                                    height: 400,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        SizedBox(
+                                          height: 30,
+                                          width: screenSize.width,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
                                             children: [
-                                              Image.asset(
-                                                championModel.habilidadeEUrl,
-                                                width: screenSize.width * 0.25,
-                                                height: screenSize.width * 0.25,
-                                              ),
-                                              const SizedBox(width: 10),
-                                              Column(
+                                              IconButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  icon: const Icon(Icons.close),
+                                                  color: Colors.black)
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          height: 30,
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              championModel.habilidadeEUrl,
+                                              width: screenSize.width * 0.25,
+                                              height: screenSize.width * 0.25,
+                                            ),
+                                            const SizedBox(width: 10),
+                                            Expanded(
+                                              child: Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
@@ -429,15 +510,32 @@ class InformacoesChampionsPage extends StatelessWidget {
                                                       color: Colors.black,
                                                     ),
                                                   ),
-                                                  Text(championModel
-                                                      .habilidadeWDescricao),
+                                                  const SizedBox(
+                                                    height: 20,
+                                                  ),
+                                                  Text(
+                                                    championModel
+                                                        .habilidadeEDescricao,
+                                                    style: championModel
+                                                                .habilidadeEDescricao
+                                                                .length >
+                                                            500
+                                                        ? const TextStyle(
+                                                            fontSize: 12.0,
+                                                            color: Colors.black)
+                                                        : const TextStyle(
+                                                            color:
+                                                                Colors.black),
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    maxLines: 20,
+                                                  ),
                                                 ],
                                               ),
-                                            ],
-                                          ),
-                                          // Adicione outros widgets conforme necessário
-                                        ],
-                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   );
                                 },
@@ -448,8 +546,10 @@ class InformacoesChampionsPage extends StatelessWidget {
                                 SizedBox(
                                   height: 30,
                                   width: 30,
-                                  child:
-                                      Image.asset(championModel.habilidadeEUrl),
+                                  child: ClipOval(
+                                    child: Image.asset(
+                                        championModel.habilidadeEUrl),
+                                  ),
                                 ),
                                 Positioned(
                                   bottom: 0,
@@ -485,45 +585,50 @@ class InformacoesChampionsPage extends StatelessWidget {
                                   backgroundColor: Colors.white,
                                   shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
+                                      topLeft: Radius.circular(32),
+                                      topRight: Radius.circular(32),
                                     ),
                                   ),
                                   builder: (context) {
-                                    return Scaffold(
-                                      appBar: AppBar(
-                                        backgroundColor: Colors.transparent,
-                                        elevation: 0,
-                                        automaticallyImplyLeading: false,
-                                        actions: [
-                                          IconButton(
-                                            icon: const Icon(Icons.close),
-                                            color: Colors.black,
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                          ),
-                                        ],
-                                      ),
-                                      body: Container(
-                                        padding: const EdgeInsets.all(16),
-                                        height:
-                                            300, // Defina o tamanho inicial do BottomSheet aqui
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            // Conteúdo do BottomSheet para habilidadeQ
-                                            Row(
+                                    return Container(
+                                      padding: const EdgeInsets.all(16),
+                                      height: 400,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          SizedBox(
+                                            height: 30,
+                                            width: screenSize.width,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
                                               children: [
-                                                Image.asset(
-                                                  championModel.habilidadeRUrl,
-                                                  width:
-                                                      screenSize.width * 0.25,
-                                                  height:
-                                                      screenSize.width * 0.25,
-                                                ),
-                                                const SizedBox(width: 10),
-                                                Column(
+                                                IconButton(
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                    icon:
+                                                        const Icon(Icons.close),
+                                                    color: Colors.black)
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 30,
+                                          ),
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Image.asset(
+                                                championModel.habilidadeRUrl,
+                                                width: screenSize.width * 0.25,
+                                                height: screenSize.width * 0.25,
+                                              ),
+                                              const SizedBox(width: 10),
+                                              Expanded(
+                                                flex: 1,
+                                                child: Column(
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
@@ -536,15 +641,34 @@ class InformacoesChampionsPage extends StatelessWidget {
                                                         color: Colors.black,
                                                       ),
                                                     ),
-                                                    Text(championModel
-                                                        .habilidadeRDescricao),
+                                                    const SizedBox(
+                                                      height: 20,
+                                                    ),
+                                                    Text(
+                                                      championModel
+                                                          .habilidadeRDescricao,
+                                                      style: championModel
+                                                                  .habilidadeRDescricao
+                                                                  .length >
+                                                              500
+                                                          ? const TextStyle(
+                                                              fontSize: 12.0,
+                                                              color:
+                                                                  Colors.black)
+                                                          : const TextStyle(
+                                                              color:
+                                                                  Colors.black),
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      maxLines: 20,
+                                                    ),
                                                   ],
                                                 ),
-                                              ],
-                                            ),
-                                            // Adicione outros widgets conforme necessário
-                                          ],
-                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                          // Adicione outros widgets conforme necessário
+                                        ],
                                       ),
                                     );
                                   },
@@ -555,8 +679,10 @@ class InformacoesChampionsPage extends StatelessWidget {
                                   SizedBox(
                                     height: 30,
                                     width: 30,
-                                    child: Image.asset(
-                                        championModel.habilidadeRUrl),
+                                    child: ClipOval(
+                                      child: Image.asset(
+                                          championModel.habilidadeRUrl),
+                                    ),
                                   ),
                                   Positioned(
                                     bottom: 0,
@@ -596,6 +722,49 @@ class InformacoesChampionsPage extends StatelessWidget {
               thickness: 0,
               indent: 0,
               endIndent: 0,
+            ),
+            const SizedBox(height: 30,),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      championModel.nome,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                const Row(
+                  children: [
+                    SizedBox(width: 15,),
+                    Text(
+                      'Forte',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 4,
+                    ),
+                    Text(
+                      'Contra',
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                CustomListCounters(champion: championModel)
+              ],
             ),
           ],
         ),

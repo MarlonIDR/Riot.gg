@@ -19,7 +19,9 @@ class ChampionModel {
   final String habilidadeRUrl;
   final String habilidadeRDescricao;
   final String championSplashArtUrl;
-  
+  final List<String> counterForte;
+  final List<String> counterFraco;
+
   ChampionModel({
     required this.nome,
     required this.url,
@@ -40,5 +42,7 @@ class ChampionModel {
     required this.habilidadeRUrl,
     required this.habilidadeRDescricao,
     required this.championSplashArtUrl,
+    required this.counterForte,
+    required this.counterFraco,
   });
 }
